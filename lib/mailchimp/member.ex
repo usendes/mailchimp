@@ -79,10 +79,10 @@ defmodule Mailchimp.Member do
     {:ok, response} = HTTPClient.post(href <> "/tags", Jason.encode!(attrs))
 
     case response do
-      %Response{status_code: 204, body: body} ->
+      %Response{status_code: 204, body: _body} ->
         {:ok, user}
 
-      %Response{status_code: code, body: body} ->
+      %Response{status_code: _code, body: body} ->
         {:error, body}
     end
   end
